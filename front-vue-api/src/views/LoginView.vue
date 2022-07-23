@@ -20,6 +20,7 @@
 
 <script>
 import NavBar from "@/components/NavBar.vue";
+import axios from "axios";
 export default {
   name: "LoginView",
   data (){
@@ -35,7 +36,13 @@ export default {
   },
   methods: {
     Login(){
-      console.log(this.formData);
+      
+      axios.post('login',this.formData)
+        .then((res) => {
+          localStorage.setItem('token', res.data.access_token);
+        });
+
+        //console.log(token);
     }
   }
 };

@@ -52,7 +52,7 @@ export default {
   methods: {
     Register(){
       
-      axios.post('http://localhost:8000/api/auth/register',this.formData)
+      axios.post('register',this.formData)
         .then(
           res => {
             console.log(res)
