@@ -1,26 +1,70 @@
 <template>
   <NavBar />
-  <p>VISTA REGISTER está utilizando componente NavBar y unBotonReutilizable</p>
+    <div>
+    <h3>Registrarse</h3>
+    <form @submit.prevent="Register">
+        <div>
+          <label for="nameUser">Nombre: </label>
+          <input type="text" v-model="formData.name">
+        </div>
+        <br>
+        <div>
+          <label for="MailUser">Correo: </label>
+          <input type="email" v-model="formData.email">
+        </div>
+        <br>
+        <div>
+          <label for="ConsUser">Contraseña: </label>
+          <input type="password" v-model="formData.password">
+        </div>
+        <br>
+        <div>
+          <label for="ConfiUser">Confirmar Contraseña: </label>
+          <input type="password" v-model="formData.password_confirmation">
+        </div>
+        <br>
+        <button>Registrarse</button>
+    </form>
+  </div>
 
-  <unBotonReutilizable />
-
-  <p>USO EL BOTON SIN TENER QUE VOLVERLO A PROGRAMAR PORQUE LO TENGO COMO COMPONENTE</p>
-  <unBotonReutilizable />
-  <unBotonReutilizable />
-  <unBotonReutilizable />
-  <unBotonReutilizable />
-  <unBotonReutilizable />
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
 import unBotonReutilizable from "@/components/unBotonReutilizable.vue";
+import axios from 'axios';
 export default {
   name: "RegisterView",
-  components: {
+  data (){
+    return {
+      formData: {
+        name: '',
+        email:'',
+        password: '',
+        password_confirmation: '',
+      }
+    }
+  },
+  components: { 
     NavBar,
     unBotonReutilizable,
   },
+  methods: {
+    Register(){
+      
+      axios.post('http://localhost:8000/api/auth/register',this.formData)
+        .then(
+          res => {
+            console.log(res)
+          }
+        )
+        .catch(
+          err => {
+            console.log(err)
+          }
+        );
+    }
+  }
 };
 </script>
 

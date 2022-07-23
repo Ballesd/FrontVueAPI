@@ -13,13 +13,18 @@ const routes = [
   //forma #2 de rutas---------------------------------------------------------
   {
     path: '/Login',
-    name: 'Nombre cualquiera para esta ruta',
+    name: 'Ingresar',
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
   },
   {
     path: '/Register',
-    name: 'Nombre cualquiera para esta otra ruta',
+    name: 'Registrarse',
     component: () => import(/* webpackChunkName: "about" */ '../views/RegisterView.vue')
+  },
+  {
+    path: '/Forgot',
+    name: 'Olvidar',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ForgetView.vue')
   }
 ]
 

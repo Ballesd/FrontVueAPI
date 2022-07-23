@@ -1,7 +1,7 @@
 <template>
   <NavBar />
 
-  <h1>Vista HOME, solo está utilizando el COMPONENTE NAVBAR</h1>
+  <h1>Vista HOME, central</h1>
 </template>
 
 <script>
