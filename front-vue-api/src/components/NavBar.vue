@@ -47,6 +47,7 @@ export default {
       user: null,
     };
   },
+  /*
   created() {
     const response = axios.post("me").then((res) => {
       //console.log(res);
@@ -54,9 +55,10 @@ export default {
     });
     //this.user = response.data;
     console.log("datos del usuario: ", this.user);
-  },
+  },*/
   methods: {
     exit() {
+      //Envio de los datos de la API con axios (metodo post)
       axios.post("logout").then((res) => {
         localStorage.removeItem("token");
       });
@@ -64,6 +66,15 @@ export default {
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
+      /*
+      created(() => {
+        const response = axios.post("me").then((res) => {
+          //console.log(res);
+          this.user = res.data;
+        });
+        //this.user = response.data;
+        console.log("datos del usuario: ", this.user);
+      });*/
     },
   },
 };

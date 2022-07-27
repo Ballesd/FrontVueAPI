@@ -39,11 +39,10 @@ export default {
       axios.post("login", this.formData).then((res) => {
         localStorage.setItem("token", res.data.access_token);
       });
-
-      //console.log(token);
+/*
       setTimeout(() => {
         window.location.href = "/";
-      }, 1000);
+      }, 1000);*/
     },
   },
 };

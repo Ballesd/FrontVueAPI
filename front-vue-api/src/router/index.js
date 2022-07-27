@@ -25,6 +25,11 @@ const routes = [
     path: '/Forgot',
     name: 'Olvidar',
     component: () => import(/* webpackChunkName: "about" */ '../views/ForgetView.vue')
+  },
+  {
+    path: '/Reset',
+    name: 'Restart',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ResetPasswordView.vue')
   }
 ]
 
