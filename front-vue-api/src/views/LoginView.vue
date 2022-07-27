@@ -36,13 +36,13 @@ export default {
   },
   methods: {
     Login() {
-      axios.post("login", this.formData).then((res) => {
-        localStorage.setItem("token", res.data.access_token);
+      axios.post('login', this.formData).then((res) => {
+        localStorage.setItem('token', res.data.access_token);
       });
-/*
+
       setTimeout(() => {
         window.location.href = "/";
-      }, 1000);*/
+      }, 1000);
     },
   },
 };

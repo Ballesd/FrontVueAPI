@@ -36,10 +36,10 @@ export default {
       axios.post(url,this.formData).then((res) => {
         console.log(res);
       });
-      /*
+      
       setTimeout(() => {
         window.location.href = "/";
-      }, 1000);*/
+      }, 1000);
     },
   },
 };
