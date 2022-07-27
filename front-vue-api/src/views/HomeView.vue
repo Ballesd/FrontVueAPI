@@ -1,7 +1,7 @@
 <template>
   <NavBar :user="user"/>
 
-  <h1>Vista HOME, central</h1>
+  <h2 >Vista HOME, central Bienvenido </h2>
 </template>
 
 <script>
@@ -10,9 +10,8 @@ import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: "HomeView",
-  props: ['user'],  
   components: {
     NavBar,
   },
-};
+}; 
 </script>

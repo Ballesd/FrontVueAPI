@@ -43,6 +43,7 @@ export default {
         });
 
         //console.log(token);
+        this.$router.push('/');
     }
   }
 };

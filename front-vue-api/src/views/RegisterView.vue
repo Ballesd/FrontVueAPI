@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     Register(){
-      
+
       axios.post('register',this.formData)
         .then(
           res => {
@@ -63,6 +63,7 @@ export default {
             console.log(err)
           }
         );
+        this.$router.push('/Login');
     }
   }
 };

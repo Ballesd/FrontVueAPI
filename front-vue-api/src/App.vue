@@ -1,21 +1,15 @@
 <template>
-  <router-view/>
+  <div>
+  </div>
+  <div>
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
   name: "App",
- /* created(){
-    const response = axios.post('me')
-      .then(
-          res => {
-            console.log(res);
-          }
-        );
-    console.log(response);
-  },*/
 }
 </script>
 

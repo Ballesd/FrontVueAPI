@@ -2,10 +2,10 @@
   <div>
     <nav>
       <div>
+        <router-link to="/" class="font-normal"> Home </router-link>
+        <h2 v-if="user">Vista HOME, central Bienvenido {{ user.name }} {{ user.email }} </h2>
+        <h2 v-if="!user">Hola, No estas logeado </h2>
         <ul v-if="!user">
-          <li>
-            <router-link to="/" class="font-normal"> Home </router-link>
-          </li>
           <li>
             <router-link to="/Login" class="font-normal"> Login </router-link>
           </li>
@@ -19,15 +19,13 @@
         </ul>
 
       </div>
-      <!--
       <div>
-        <ul v-if="!user">
+        <ul v-if="user">
           <li>
             <a href="javascript:void(0)" @click="exit" class="font-normal"> LogOut </a>
           </li>
         </ul>
       </div>
-      --> 
     </nav>
   </div>
 </template>
@@ -37,14 +35,29 @@ import axios from 'axios';
 
 export default {
   name: 'Nav',
-  props: ['user'],
+    data(){
+    return {
+      user: null
+    }
+  },
+  created(){
+    const response = axios.post('me')
+      .then(
+          res => {
+            //console.log(res);
+            this.user = res.data;
+          }
+        );
+    //this.user = response.data;
+    console.log("datos del usuario: ",this.user);
+  },    
   methods:{
     exit(){
       axios.post('logout')
         .then((res) => {
           localStorage.removeItem('token');
-        });;
-      
+        });
+      localStorage.removeItem('token');
     }
   }
 }
