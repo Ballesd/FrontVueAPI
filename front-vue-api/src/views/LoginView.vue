@@ -7,12 +7,12 @@
         <label for="">Email: </label>
         <input type="email" v-model="formData.email" name="" id="" />
       </div>
-      <br>
+      <br />
       <div>
         <label for="">Contraseña: </label>
         <input type="password" v-model="formData.password" />
       </div>
-      <br>
+      <br />
       <button>Ingresar</button>
     </form>
   </div>
@@ -23,28 +23,28 @@ import NavBar from "@/components/NavBar.vue";
 import axios from "axios";
 export default {
   name: "LoginView",
-  data (){
+  data() {
     return {
       formData: {
-        email:'',
-        password: '',
-      }
-    }
+        email: "",
+        password: "",
+      },
+    };
   },
   components: {
     NavBar,
   },
   methods: {
-    Login(){
-      
-      axios.post('login',this.formData)
-        .then((res) => {
-          localStorage.setItem('token', res.data.access_token);
-        });
+    Login() {
+      axios.post("login", this.formData).then((res) => {
+        localStorage.setItem("token", res.data.access_token);
+      });
 
-        //console.log(token);
-        this.$router.push('/');
-    }
-  }
+      //console.log(token);
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
+    },
+  },
 };
 </script>
